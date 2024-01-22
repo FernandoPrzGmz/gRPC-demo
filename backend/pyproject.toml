@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "grpc-backend"
+version = "0.1.0"
+description = ""
+authors = ["FernandoPrzGmz"]
+readme = "README.md"
+packages = [{include = "grpc_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "4.2.9"
+mysqlclient = "2.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

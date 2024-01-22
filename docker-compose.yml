@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+    # Databases
+    backend_database:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root_password
+            MYSQL_DATABASE: backend_db
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin123
+    inventory_database:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root_password
+            MYSQL_DATABASE: inventory_db
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin123
+    ecommerce_database:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root_password
+            MYSQL_DATABASE: ecommerce_db
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin123
+    # Services
+    inventory_service:
+        build:
+            context: ./services/inventory
+        ports:
+            - "8010:3000"
+        depends_on:
+            - inventory_database
+    ecommerce_service:
+        build:
+            context: ./services/ecommerce
+        ports:
+            - "8011:8000"
+        depends_on:
+            - ecommerce_database
+    # Main
+    backend:
+        build:
+            context: ./backend
+        ports:
+            - "8000:8000"
+    frontend:
+        build:
+            context: ./frontend
+        ports:
+            - "3000:3000"
