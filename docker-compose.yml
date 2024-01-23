@@ -41,6 +41,8 @@ services:
             - "8011:8000"
         depends_on:
             - ecommerce_database
+        volumes:
+            - ./services/ecommerce/src:/app/src
     # Main
     backend:
         build:
