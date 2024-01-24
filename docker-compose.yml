@@ -34,6 +34,8 @@ services:
             - "8010:3000"
         depends_on:
             - inventory_database
+        volumes:
+            - ./services/inventory:/app
     ecommerce_service:
         build:
             context: ./services/ecommerce
