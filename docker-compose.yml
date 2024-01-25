@@ -35,7 +35,7 @@ services:
         depends_on:
             - inventory_database
         volumes:
-            - ./services/inventory:/app
+            - ./services/inventory/src:/app/src
     ecommerce_service:
         build:
             context: ./services/ecommerce

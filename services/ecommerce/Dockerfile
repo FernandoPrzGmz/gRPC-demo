@@ -2,7 +2,6 @@ FROM ubuntu
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG PYTHON_VERSION=3.10
-ARG PROJECT_DIR=/app
 
 # Django superadmin credentials
 ENV DJANGO_SUPERUSER_EMAIL admin@example.com
@@ -72,7 +71,7 @@ RUN poetry config virtualenvs.create false
 RUN apt install -y \
     libmysqlclient-dev
 
-WORKDIR ${PROJECT_DIR}
+WORKDIR /app
 COPY pyproject.toml pyproject.toml
 RUN poetry install
 # endregion
