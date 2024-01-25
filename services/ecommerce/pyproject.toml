@@ -11,6 +11,9 @@ python = "^3.10"
 Django = "4.2.9"
 mysqlclient = "2.2.1"
 djangorestframework = "3.14.0"
+djangogrpcframework = "0.2.1"
+grpcio = "1.60.0"
+grpcio-tools = "1.60.0"
 
 [build-system]
 requires = ["poetry-core"]

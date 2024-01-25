@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd party apps
     'rest_framework',
+    'django_grpc_framework',
     # local apps
     'src.apps.account',
     'src.apps.ecommerce',

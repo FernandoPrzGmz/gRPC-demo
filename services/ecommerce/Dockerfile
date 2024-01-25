@@ -77,6 +77,12 @@ RUN poetry install
 # endregion
 
 
+# region Fix error with project requirement
+# https://github.com/fengsp/django-grpc-framework/issues/42#issuecomment-1545346306
+RUN sed -i 's/requires_system_checks = False/requires_system_checks = []/'  /root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/django_grpc_framework/management/commands/grpcrunserver.py
+# endregion
+
+
 
 # region Project installation
 # Copy project source

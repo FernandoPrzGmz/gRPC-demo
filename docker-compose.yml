@@ -31,7 +31,7 @@ services:
         build:
             context: ./services/inventory
         ports:
-            - "8010:3000"
+            - "8010:3000"  # API REST server
         depends_on:
             - inventory_database
         volumes:
@@ -40,7 +40,8 @@ services:
         build:
             context: ./services/ecommerce
         ports:
-            - "8011:8000"
+            - "8020:8000"  # API REST server
+            - "50051:50051"  # gRPC server
         depends_on:
             - ecommerce_database
         volumes:
